@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate UPI Link</title>
+</head>
+<body>
+    <h1>Generate UPI Link</h1>
+    <label for="amount">Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount" />
+    <button onclick="generateUPILink()">Generate UPI Link</button>
+
+    <p id="upiLink">UPI Link will be displayed here</p>
+
+    <script>
+        const generateUPILink = () => {
+            const amount = document.getElementById('amount').value;
+            if (amount) {
+                const upiLink = `phonepe://pay?pa=mab.037323049680010@axisbank&am=${amount}&tn=flipkart&cu=INR`;
+                document.getElementById('upiLink').innerText = upiLink;
+                document.getElementById('upiLink').href = upiLink;
+            } else {
+                alert("Please enter a valid amount");
+            }
+        }
+    </script>
+</body>
+</html>
